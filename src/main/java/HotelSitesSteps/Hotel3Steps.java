@@ -15,13 +15,13 @@ public class Hotel3Steps {
 
     WebDriver driver;
 
-    @Given("The user is on home page")
-    public void enterPage() {
+    @Given("The user is on {string} home page")
+    public void enterPage(String url) {
         System.setProperty("webdriver.chrome.driver",
                 "src/main/resources/drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://hotel-testlab.coderslab.pl/.");
+        driver.get(url);
     }
 
     @When("The user clicks on SignIn button")
@@ -50,5 +50,4 @@ public class Hotel3Steps {
         onMyAccount.checkUsernameVisibility(firstName);
         driver.quit();
     }
-
 }

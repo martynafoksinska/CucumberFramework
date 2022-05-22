@@ -1,12 +1,11 @@
 package Pages;
 
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class MyAccount {
-    private static WebDriver driver;
+    public static WebDriver driver;
 
     public MyAccount(WebDriver driver) {
         this.driver = driver;
@@ -34,19 +33,20 @@ public class MyAccount {
 
     public void addFirstAddress() {
 
-        Faker faker = new Faker();
 
         WebElement addMyFirstAddress = driver.findElement(By.xpath("//*[@id='center_column']/div/div/ul/li[1]/a/span"));
         addMyFirstAddress.click();
 
-        driver.findElement(By.id("address1")).sendKeys(faker.address().streetAddress());
-        driver.findElement(By.id("postcode")).sendKeys(faker.number().digits(5));
-        driver.findElement(By.id("city")).sendKeys(faker.address().city());
-        driver.findElement(By.id("phone_mobile")).sendKeys(faker.phoneNumber().cellPhone());
+        driver.findElement(By.id("address1")).sendKeys("Olsztyńska");
+        driver.findElement(By.id("postcode")).sendKeys("80-895");
+        driver.findElement(By.id("city")).sendKeys("Gdańsk");
+        driver.findElement(By.id("phone_mobile")).sendKeys("213456987");
         driver.findElement(By.id("alias")).click();
         driver.findElement(By.id("submitAddress")).click();
         driver.findElement(By.xpath("//*[@id='center_column']/ul/li[1]/a/span")).click();
     }
+
+
 
     public boolean checkUsernameVisibility(String username) {
         WebElement usernameDropDown = driver.findElement(By.className("account_user_name"));

@@ -15,7 +15,7 @@ public class RegistrationPage {
         this.driver = driver;
     }
 
-        public void createAccount() throws InterruptedException {
+    public void createAccount() throws InterruptedException {
             Thread.sleep(2000);
             WebElement titleMr = driver.findElement(By.id("id_gender1"));
             WebElement titleMrs = driver.findElement(By.id("id_gender2"));

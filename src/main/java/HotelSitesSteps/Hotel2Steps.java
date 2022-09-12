@@ -26,7 +26,7 @@ public class Hotel2Steps {
         driver.get("https://hotel-testlab.coderslab.pl/.");
     }
 
-    @When("User clicks on Sign In button")
+    @When("Human clicks on Sign In button")
     public void SignIn() {
         LandingPage onLandingPage = new LandingPage(driver);
         onLandingPage.clickOnSingIn();

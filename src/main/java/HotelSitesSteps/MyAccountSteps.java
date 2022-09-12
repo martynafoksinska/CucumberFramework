@@ -12,7 +12,7 @@ public class MyAccountSteps {
 
     WebDriver driver;
 
-    @Given("The user is on {string} home page")
+    @Given("Human is on {string} home page")
     public void enterHomePage(String url) {
         System.setProperty("webdriver.chrome.driver",
                 "src/main/resources/drivers/chromedriver.exe");

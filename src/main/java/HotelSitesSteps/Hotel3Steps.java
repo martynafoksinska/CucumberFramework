@@ -15,7 +15,7 @@ public class Hotel3Steps {
 
     WebDriver driver;
 
-    @Given("The user is on {string} home page")
+    @Given("Valid user is on {string} home page")
     public void enterPage(String url) {
         System.setProperty("webdriver.chrome.driver",
                 "src/main/resources/drivers/chromedriver.exe");
@@ -24,27 +24,27 @@ public class Hotel3Steps {
         driver.get(url);
     }
 
-    @When("The user clicks on SignIn button")
+    @When("Valid user clicks on SignIn button")
     public void SignIn() {
         LandingPage onLandingPage = new LandingPage(driver);
         onLandingPage.clickOnSingIn();
 
     }
 
-    @And("User inputs an email address {string} and clicks the CreateAnAccount button")
+    @And("Valid user inputs an email address {string} and clicks the CreateAnAccount button")
     public void formAndRegisterButton(String mail) throws InterruptedException {
         LoginPage onLoginPage = new LoginPage(driver);
         onLoginPage.authentication(mail);
     }
 
-    @And("User completes the registration form {string}, {string}, {string} and clicks Register button")
+    @And("Valid user completes the registration form {string}, {string}, {string} and clicks Register button")
     public void fillRegistrationForm(String firstName, String lastName, String password) throws InterruptedException {
         RegistrationPage onRegistrationPage = new RegistrationPage(driver);
         onRegistrationPage.createNewUser(firstName, lastName, password);
         onRegistrationPage.registerButton();
     }
 
-    @Then("User account has been created and the user with {string} is logged into his account")
+    @Then("Valid user account has been created and the user with {string} is logged into his account")
     public void checkAccount(String firstName) {
         MyAccount onMyAccount = new MyAccount(driver);
         onMyAccount.checkUsernameVisibility(firstName);
